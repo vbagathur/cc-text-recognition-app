@@ -1,0 +1,24 @@
+{
+  "name": "cc-text-recognition-app",
+  "version": "1.0.0",
+  "description": "my uml project for google cloud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "google",
+    "cloud",
+    "uml",
+    "project"
+  ],
+  "author": "viswanath natarajan",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/bigtable": "^4.1.0",
+    "@google-cloud/storage": "^6.7.0",
+    "@google-cloud/vision": "^3.0.1",
+    "dotenv": "^16.0.3",
+    "google-gax": "^3.5.2"
+  }
+}
