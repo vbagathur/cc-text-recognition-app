@@ -16,8 +16,10 @@ async function insertRecord(userId, receiptId, receiptObj) {
         const rowToInsert = {
           key: userId + '-' + receiptId,
           data: {
-            receiptText: receiptObj
-          },
+            receiptText: {
+              description: receiptObj
+            }
+          }
         };
       
         await table.insert(rowToInsert);

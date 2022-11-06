@@ -122,17 +122,17 @@ http.createServer(function (req, res) {
                 res.end();
                 return;
             }else {
-                // console.log(queriedItems[0]);
-                const trxDetails = 'MerchantName    : '+queriedItems[0]["receiptObj"]["MerchantName"]["value"] + '\n' +
-                'Items 1         : '+queriedItems[0]["receiptObj"]["Items"]["values"][0]["content"] + '\n' +
-                'Items 2         : '+queriedItems[0]["receiptObj"]["Items"]["values"][1]["content"] + '\n' +
-                'Subtotal        : '+queriedItems[0]["receiptObj"]["Subtotal"]["value"] + '\n' +
-                'TotalTax        : '+queriedItems[0]["receiptObj"]["TotalTax"]["value"] + '\n' +
-                'Total           : '+queriedItems[0]["receiptObj"]["Total"]["value"] + '\n' +
-                'TransactionDate : '+queriedItems[0]["receiptObj"]["TransactionDate"]["value"] + '\n' +
-                'TransactionTime : '+queriedItems[0]["receiptObj"]["TransactionTime"]["value"];
-                console.log(trxDetails);
-                res.write("Check Status\n\n" +trxDetails);
+                const trxDetails = JSON.parse(queriedItems)["receiptText"];
+                // const trxDetails = 'MerchantName    : '+queriedItems[0]["receiptObj"]["MerchantName"]["value"] + '\n' +
+                // 'Items 1         : '+queriedItems[0]["receiptObj"]["Items"]["values"][0]["content"] + '\n' +
+                // 'Items 2         : '+queriedItems[0]["receiptObj"]["Items"]["values"][1]["content"] + '\n' +
+                // 'Subtotal        : '+queriedItems[0]["receiptObj"]["Subtotal"]["value"] + '\n' +
+                // 'TotalTax        : '+queriedItems[0]["receiptObj"]["TotalTax"]["value"] + '\n' +
+                // 'Total           : '+queriedItems[0]["receiptObj"]["Total"]["value"] + '\n' +
+                // 'TransactionDate : '+queriedItems[0]["receiptObj"]["TransactionDate"]["value"] + '\n' +
+                // 'TransactionTime : '+queriedItems[0]["receiptObj"]["TransactionTime"]["value"];
+                console.log(trxDetails["description"][0]["value"]);
+                res.write("Check Status\n\n" +trxDetails["description"][0]["value"]);
                 res.end();
             }
         });

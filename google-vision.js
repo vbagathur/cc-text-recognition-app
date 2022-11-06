@@ -27,8 +27,12 @@ async function recognizeReceipt(userId,receiptNo,targetFile) {
   const [result] = await client.textDetection(targetFile);
   const detections = result.textAnnotations;
   console.log('Text:');
-  detections.forEach(text => console.log(text));
-  return detections;
+  let retText=[];
+  // detections.forEach((text,index) => retText+='{ ' + index +' : "'+ text['description'] + '" }' );
+
+  detections.forEach(text => retText.push(text['description']) );
+  console.log(retText[0]); 
+  return retText[0];
 }
 
 module.exports.recognizeReceipt = recognizeReceipt;
